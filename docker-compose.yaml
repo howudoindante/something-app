@@ -5,7 +5,7 @@ services:
     ports:
       - "8082:8082"
     volumes:
-      - ./auth/backend/config/config.yml:/app/config.yml:ro
+      - ./auth-service/backend/config/config.yml:/app/config.yml:ro
     environment:
       - CONFIG_PATH=/app/config.yml
     depends_on:
@@ -17,7 +17,7 @@ services:
 
 
   user:
-    build: ./user/backend
+    build: ./user-service/backend
     image: myorg/user:latest
     ports:
       - "8081:8081"
@@ -31,7 +31,7 @@ services:
     depends_on:
       - auth
     volumes:
-      - ./user/backend/config/config.yml:/app/config.yml:ro
+      - ./user-service/backend/config/config.yml:/app/config.yml:ro
 
   gateway:
     build: ./gateway
