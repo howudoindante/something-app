@@ -4,7 +4,7 @@ LABEL maintainer="howudoindante"
 
 WORKDIR /etc/envoy
 
-COPY ./envoy.yaml ./envoy.yaml
+COPY envoy.yaml ./envoy.yaml
 
 EXPOSE 8080
 
